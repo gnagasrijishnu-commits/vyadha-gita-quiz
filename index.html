@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Vyadha Gita - Arjun's Journey</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HOME SCREEN -->
+
+        <div id="homeScreen" class="screen">
+
+            <h1>Vyadha Gita</h1>
+
+            <h2>Reviving Respect and Care for Ageing Parents</h2>
+
+            <p>
+                Welcome to Arjun's Journey.
+                Make choices, explore stories,
+                and reflect on family responsibilities.
+            </p>
+
+            <button onclick="startJourney()">
+                Start Journey
+            </button>
+
+        </div>
+
+
+        <!-- INTRODUCTION SCREEN -->
+
+        <div id="introScreen" class="screen hidden">
+
+            <h1>Arjun's Journey</h1>
+
+            <p>
+                Arjun is a college student.
+                His choices will shape his journey
+                through everyday family situations.
+            </p>
+
+            <p>
+                Read each situation carefully,
+                select an action,
+                and explore the feedback.
+            </p>
+
+            <button onclick="startScenarios()">
+                Begin Story
+            </button>
+
+        </div>
+
+
+        <!-- SCENARIO SCREEN -->
+
+        <div id="scenarioScreen" class="screen hidden">
+
+            <p id="progressText"></p>
+
+            <h2 id="scenarioTitle"></h2>
+
+            <p id="scenarioText"></p>
+
+            <div id="choicesContainer"></div>
+
+
+            <!-- FEEDBACK -->
+
+            <div id="feedbackBox" class="hidden">
+
+                <h3>Story Feedback</h3>
+
+                <p id="feedbackText"></p>
+
+                <button onclick="nextScenario()">
+                    Continue Story
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUIZ SCREEN -->
+
+        <div id="quizScreen" class="screen hidden">
+
+            <p id="quizProgress"></p>
+
+            <h2>Knowledge Quiz</h2>
+
+            <h3 id="quizQuestion"></h3>
+
+            <div id="quizOptions"></div>
+
+            <p id="quizFeedback"></p>
+
+            <button id="nextQuizButton"
+                    class="hidden"
+                    onclick="nextQuizQuestion()">
+
+                Next Question
+
+            </button>
+
+        </div>
+
+
+        <!-- RESULT SCREEN -->
+
+        <div id="resultScreen" class="screen hidden">
+
+            <h1>Journey Completed!</h1>
+
+            <h2 id="resultScore"></h2>
+
+            <p></p>
+
+            <button onclick="startJourney()">
+                Play Again
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
