@@ -1,0 +1,1151 @@
+/* =====================================================
+   VYADHA GITA - PREMIUM COLORFUL DESIGN
+   ===================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap");
+
+
+/* =====================================================
+   GLOBAL
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "DM Sans", sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+
+    /* Default background before a chapter starts */
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(255, 180, 80, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(112, 92, 255, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #101528,
+            #1c203b 50%,
+            #24182e
+        );
+
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    transition: background 0.8s ease;
+}
+
+
+/* Decorative dots */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            rgba(255, 255, 255, 0.08) 1px,
+            transparent 1px
+        );
+
+    background-size: 30px 30px;
+    opacity: 0.25;
+    z-index: -1;
+}
+
+
+/* =====================================================
+   CONTAINER
+   ===================================================== */
+
+.container {
+    width: min(100% - 32px, 1050px);
+    margin: 0 auto;
+    padding: 30px 0 60px;
+}
+
+
+/* =====================================================
+   HIDDEN
+   ===================================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =====================================================
+   COMMON SCREEN
+   ===================================================== */
+
+.screen {
+    min-height: 620px;
+    padding: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 30px;
+
+    background: rgba(10, 15, 35, 0.12);
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.35);
+
+    animation: screenEnter 0.55s ease;
+}
+
+
+@keyframes screenEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   TYPOGRAPHY
+   ===================================================== */
+
+h1,
+h2,
+h3 {
+    font-family: "Playfair Display", serif;
+}
+
+h1 {
+    font-size: clamp(2.4rem, 6vw, 4.8rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-bottom: 14px;
+}
+
+p {
+    line-height: 1.8;
+    color: #e2e4f0;
+    font-size: 1.02rem;
+}
+
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
+button {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+
+/* =====================================================
+   HOME SCREEN
+   ===================================================== */
+
+#homeScreen {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    min-height: 680px;
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(13, 20, 40, 0.88),
+            rgba(33, 35, 75, 0.68)
+        );
+}
+
+
+#homeScreen::before {
+    content: "☀";
+
+    position: absolute;
+    right: 8%;
+    top: 10%;
+
+    font-size: 10rem;
+
+    color: rgba(255, 196, 93, 0.12);
+}
+
+
+#homeScreen::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    right: -130px;
+    bottom: -150px;
+
+    background: #f59e0b;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.20;
+}
+
+
+#homeScreen h1 {
+    background:
+        linear-gradient(
+            90deg,
+            #ffd27a,
+            #ff9d5c,
+            #f8dba7
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+#homeScreen h2 {
+    color: #f8dba7;
+
+    max-width: 650px;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+#homeScreen p {
+    max-width: 580px;
+
+    margin-bottom: 34px;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =====================================================
+   PRIMARY BUTTON
+   ===================================================== */
+
+#homeScreen button,
+#introScreen button,
+#resultScreen button {
+
+    border: none;
+
+    padding: 17px 32px;
+
+    border-radius: 100px;
+
+    color: #21162a;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd36a,
+            #ff9c65
+        );
+
+    box-shadow:
+        0 8px 25px rgba(255, 160, 80, 0.25);
+
+    position: relative;
+    z-index: 2;
+}
+
+
+#homeScreen button:hover,
+#introScreen button:hover,
+#resultScreen button:hover {
+
+    box-shadow:
+        0 12px 35px rgba(255, 160, 80, 0.42);
+}
+
+
+/* =====================================================
+   INTRO SCREEN
+   ===================================================== */
+
+#introScreen {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(112, 92, 255, 0.25),
+            transparent 55%
+        ),
+        rgba(255, 255, 255, 0.05);
+}
+
+
+#introScreen h1 {
+    color: #c8c2ff;
+}
+
+
+#introScreen h2 {
+    color: #ffffff;
+}
+
+
+#introScreen p {
+    max-width: 650px;
+    margin-bottom: 18px;
+}
+
+
+/* =====================================================
+   STORY / SCENARIO SCREEN
+   ===================================================== */
+
+#scenarioScreen {
+
+    background: rgba(10, 15, 35, 0.08);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+
+    transition:
+        background 0.8s ease,
+        backdrop-filter 0.8s ease;
+}
+
+
+/* =====================================================
+   PROGRESS
+   ===================================================== */
+
+#progressText {
+
+    display: inline-block;
+
+    padding: 8px 16px;
+
+    margin-bottom: 24px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.16);
+
+    border-radius: 100px;
+
+    color: #ffd0e8;
+
+    background:
+        rgba(255, 105, 175, 0.14);
+
+    font-size: 0.88rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   SCENARIO TITLE
+   ===================================================== */
+
+#scenarioTitle {
+
+    color: #ffd27a;
+
+    font-size:
+        clamp(1.9rem, 4vw, 3rem);
+}
+
+
+/* =====================================================
+   SCENARIO TEXT
+   ===================================================== */
+
+#scenarioText {
+
+    white-space: pre-line;
+
+    font-size: 1.08rem;
+
+    line-height: 1.95;
+
+    padding: 28px;
+
+    margin-bottom: 26px;
+
+    border-left:
+        4px solid #f5b65b;
+
+    border-radius:
+        0 20px 20px 0;
+
+    background:
+        rgba(255, 255, 255, 0.075);
+}
+
+
+/* =====================================================
+   CHOICE BUTTONS
+   ===================================================== */
+
+#choicesContainer {
+
+    display: grid;
+
+    gap: 14px;
+}
+
+
+.choice-button {
+
+    width: 100%;
+
+    padding: 18px 22px;
+
+    text-align: left;
+
+    border-radius: 16px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(255, 255, 255, 0.10),
+            rgba(255, 255, 255, 0.045)
+        );
+
+    color: #ffffff;
+
+    line-height: 1.5;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+.choice-button:hover {
+
+    border-color: #ffbd68;
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(255, 183, 95, 0.22),
+            rgba(255, 255, 255, 0.08)
+        );
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+
+.choice-button:disabled {
+    transform: none;
+}
+
+
+/* =====================================================
+   FEEDBACK
+   ===================================================== */
+
+#feedbackBox {
+
+    margin-top: 28px;
+
+    padding: 28px;
+
+    border:
+        1px solid rgba(116, 229, 184, 0.35);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(51, 164, 125, 0.18),
+            rgba(255, 255, 255, 0.04)
+        );
+
+    animation:
+        feedbackEnter 0.4s ease;
+}
+
+
+@keyframes feedbackEnter {
+
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+#feedbackBox h3 {
+    color: #8df0c3;
+}
+
+
+#feedbackText {
+
+    white-space: pre-line;
+
+    margin-bottom: 22px;
+}
+
+
+/* =====================================================
+   GOOD ANSWER - GREEN
+   ===================================================== */
+
+#feedbackBox.feedback-good {
+
+    border:
+        1px solid rgba(76, 230, 145, 0.55);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(76, 230, 145, 0.20),
+            rgba(30, 120, 75, 0.16)
+        );
+
+    box-shadow:
+        0 0 30px rgba(76, 230, 145, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+
+#feedbackBox.feedback-good h3 {
+    color: #6ff0a5;
+}
+
+
+/* =====================================================
+   AVERAGE ANSWER - ORANGE
+   ===================================================== */
+
+#feedbackBox.feedback-average {
+
+    border:
+        1px solid rgba(255, 174, 67, 0.60);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 174, 67, 0.20),
+            rgba(170, 95, 25, 0.15)
+        );
+
+    box-shadow:
+        0 0 30px rgba(255, 174, 67, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+
+#feedbackBox.feedback-average h3 {
+    color: #ffbd66;
+}
+
+
+/* =====================================================
+   POOR ANSWER - RED
+   ===================================================== */
+
+#feedbackBox.feedback-poor {
+
+    border:
+        1px solid rgba(255, 88, 88, 0.65);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 88, 88, 0.20),
+            rgba(150, 35, 35, 0.15)
+        );
+
+    box-shadow:
+        0 0 30px rgba(255, 88, 88, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+
+#feedbackBox.feedback-poor h3 {
+    color: #ff7777;
+}
+
+
+/* =====================================================
+   RESULT SCREEN
+   ===================================================== */
+
+#resultScreen {
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(86, 214, 164, 0.25),
+            transparent 55%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(26, 65, 69, 0.88),
+            rgba(25, 32, 57, 0.88)
+        );
+}
+
+
+#resultScreen h1 {
+    color: #9af1ca;
+}
+
+
+#resultScore {
+
+    display: inline-block;
+
+    margin: 15px 0 24px;
+
+    padding: 18px 30px;
+
+    border-radius: 18px;
+
+    color: #1c3d36;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9af1ca,
+            #c7ffe6
+        );
+}
+
+
+#resultScreen p {
+
+    max-width: 650px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   CHAPTER BACKGROUNDS
+   LOCAL PNG FILES
+   ===================================================== */
+
+
+/* =====================================================
+   CHAPTER 1 - THE MISSED CALL
+   ===================================================== */
+
+body.chapter-1 {
+    background:
+        linear-gradient(
+            rgba(8, 15, 35, 0.20),
+            rgba(8, 15, 35, 0.30)
+        ),
+        url("images/chapter1.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 2 - A QUIET MORNING
+   ===================================================== */
+
+body.chapter-2 {
+
+    background:
+        linear-gradient(
+            rgba(20, 30, 40, 0.48),
+            rgba(10, 20, 30, 0.65)
+        ),
+        url("images/chapter2.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 3 - THE COLLEGE ASSIGNMENT
+   ===================================================== */
+
+body.chapter-3 {
+
+    background:
+        linear-gradient(
+            rgba(10, 20, 45, 0.52),
+            rgba(10, 15, 35, 0.68)
+        ),
+        url("images/chapter3.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 4 - FORGOTTEN MEDICINE REMINDER
+   ===================================================== */
+
+body.chapter-4 {
+
+    background:
+        linear-gradient(
+            rgba(15, 30, 40, 0.50),
+            rgba(8, 20, 30, 0.68)
+        ),
+        url("images/chapter4.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 5 - FAMILY CONVERSATION
+   ===================================================== */
+
+body.chapter-5 {
+
+    background:
+        linear-gradient(
+            rgba(35, 20, 25, 0.48),
+            rgba(25, 12, 25, 0.68)
+        ),
+        url("images/chapter5.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 6 - WEEKEND PLAN
+   ===================================================== */
+
+body.chapter-6 {
+
+    background:
+        linear-gradient(
+            rgba(20, 25, 40, 0.45),
+            rgba(10, 15, 30, 0.65)
+        ),
+        url("images/chapter6.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 7 - THE DIGITAL DIVIDE
+   ===================================================== */
+
+body.chapter-7 {
+
+    background:
+        linear-gradient(
+            rgba(10, 20, 40, 0.50),
+            rgba(8, 15, 35, 0.68)
+        ),
+        url("images/chapter7.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 8 - THE UNEXPECTED EXPENSE
+   ===================================================== */
+
+body.chapter-8 {
+
+    background:
+        linear-gradient(
+            rgba(30, 25, 15, 0.50),
+            rgba(18, 15, 10, 0.68)
+        ),
+        url("images/chapter8.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 9 - THE FESTIVAL INVITATION
+   ===================================================== */
+
+body.chapter-9 {
+
+    background:
+        linear-gradient(
+            rgba(40, 15, 25, 0.42),
+            rgba(25, 10, 25, 0.65)
+        ),
+        url("images/chapter9.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 10 - THE DIFFICULT DISCUSSION
+   ===================================================== */
+
+body.chapter-10 {
+
+    background:
+        linear-gradient(
+            rgba(30, 20, 25, 0.48),
+            rgba(18, 12, 25, 0.68)
+        ),
+        url("images/chapter10.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 11 - A LESSON FROM THE PAST
+   ===================================================== */
+
+body.chapter-11 {
+
+    background:
+        linear-gradient(
+            rgba(30, 20, 15, 0.48),
+            rgba(18, 12, 12, 0.68)
+        ),
+        url("images/chapter11.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 12 - BUSY EXAMINATION WEEK
+   ===================================================== */
+
+body.chapter-12 {
+
+    background:
+        linear-gradient(
+            rgba(10, 20, 40, 0.52),
+            rgba(8, 12, 30, 0.70)
+        ),
+        url("images/chapter12.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 13 - HEALTH CONVERSATION
+   ===================================================== */
+
+body.chapter-13 {
+
+    background:
+        linear-gradient(
+            rgba(10, 30, 35, 0.48),
+            rgba(5, 20, 25, 0.68)
+        ),
+        url("images/chapter13.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 14 - FAMILY RESPONSIBILITY
+   ===================================================== */
+
+body.chapter-14 {
+
+    background:
+        linear-gradient(
+            rgba(30, 25, 20, 0.48),
+            rgba(18, 15, 12, 0.68)
+        ),
+        url("images/chapter14.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 15 - A MOMENT OF PATIENCE
+   ===================================================== */
+
+body.chapter-15 {
+
+    background:
+        linear-gradient(
+            rgba(35, 22, 20, 0.45),
+            rgba(20, 12, 15, 0.68)
+        ),
+        url("images/chapter15.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 16 - THE FAMILY BUDGET
+   ===================================================== */
+
+body.chapter-16 {
+
+    background:
+        linear-gradient(
+            rgba(30, 22, 15, 0.50),
+            rgba(18, 12, 8, 0.68)
+        ),
+        url("images/chapter16.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 17 - A SHARED DECISION
+   ===================================================== */
+
+body.chapter-17 {
+
+    background:
+        linear-gradient(
+            rgba(20, 25, 40, 0.48),
+            rgba(10, 15, 30, 0.68)
+        ),
+        url("images/chapter17.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 18 - THE MEANING OF RESPONSIBILITY
+   ===================================================== */
+
+body.chapter-18 {
+
+    background:
+        linear-gradient(
+            rgba(30, 20, 20, 0.48),
+            rgba(18, 12, 15, 0.68)
+        ),
+        url("images/chapter18.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 19 - ARJUN'S NEW ROUTINE
+   ===================================================== */
+
+body.chapter-19 {
+
+    background:
+        linear-gradient(
+            rgba(15, 30, 35, 0.45),
+            rgba(8, 18, 25, 0.66)
+        ),
+        url("images/chapter19.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   CHAPTER 20 - A MEANINGFUL CONVERSATION
+   ===================================================== */
+
+body.chapter-20 {
+
+    background:
+        linear-gradient(
+            rgba(40, 22, 28, 0.45),
+            rgba(22, 12, 20, 0.68)
+        ),
+        url("images/chapter20.png")
+        center / cover fixed no-repeat;
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    .container {
+
+        width:
+            min(100% - 20px, 1050px);
+
+        padding-top: 10px;
+    }
+
+
+    .screen {
+
+        min-height: 600px;
+
+        padding:
+            28px 20px;
+
+        border-radius: 24px;
+    }
+
+
+    #homeScreen {
+
+        min-height: 600px;
+    }
+
+
+    h1 {
+
+        font-size: 2.5rem;
+    }
+
+
+    h2 {
+
+        font-size: 1.6rem;
+    }
+
+
+    #scenarioText {
+
+        padding: 20px;
+
+        font-size: 0.98rem;
+    }
+
+
+    .choice-button {
+
+        padding: 16px;
+
+        font-size: 0.92rem;
+    }
+
+
+    #feedbackBox {
+
+        padding: 20px;
+    }
+
+
+    #resultScore {
+
+        padding:
+            15px 20px;
+
+        font-size: 0.95rem;
+    }
+
+
+    /* Mobile background fix */
+
+    body.chapter-1,
+    body.chapter-2,
+    body.chapter-3,
+    body.chapter-4,
+    body.chapter-5,
+    body.chapter-6,
+    body.chapter-7,
+    body.chapter-8,
+    body.chapter-9,
+    body.chapter-10,
+    body.chapter-11,
+    body.chapter-12,
+    body.chapter-13,
+    body.chapter-14,
+    body.chapter-15,
+    body.chapter-16,
+    body.chapter-17,
+    body.chapter-18,
+    body.chapter-19,
+    body.chapter-20 {
+
+        background-attachment: scroll;
+    }
+
+}

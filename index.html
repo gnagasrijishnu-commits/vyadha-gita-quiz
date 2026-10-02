@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Vyadha Gita | Arjun's Journey</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "DM Sans", sans-serif;
+            color: white;
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(255, 145, 205, 0.18),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(128, 178, 255, 0.16),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 50% 90%,
+                    rgba(255, 196, 99, 0.12),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #090d24 0%,
+                    #171432 48%,
+                    #28153a 100%
+                );
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: -1;
+
+            animation:
+                floatingLight
+                8s
+                ease-in-out
+                infinite
+                alternate;
+        }
+
+        body::before {
+            top: 8%;
+            left: -100px;
+            background: rgba(255, 103, 184, 0.16);
+        }
+
+        body::after {
+            right: -100px;
+            bottom: 5%;
+            background: rgba(102, 165, 255, 0.15);
+            animation-delay: -4s;
+        }
+
+        .container {
+            width: min(
+                1050px,
+                calc(100% - 32px)
+            );
+
+            margin: 0 auto;
+            padding: 55px 0 70px;
+        }
+
+        .screen {
+            position: relative;
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.16);
+
+            border-radius: 30px;
+            padding: 58px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.12),
+                    rgba(255,255,255,0.045)
+                ),
+                rgba(18,18,50,0.76);
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.35),
+                inset 0 1px 0 rgba(255,255,255,0.12);
+
+            backdrop-filter: blur(20px);
+        }
+
+        .screen::before {
+            content: "";
+            position: absolute;
+
+            width: 230px;
+            height: 230px;
+
+            right: -100px;
+            top: -100px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,130,199,0.16);
+
+            filter: blur(20px);
+            pointer-events: none;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .screen-enter {
+            animation:
+                slideIn
+                0.65s
+                cubic-bezier(.2,.8,.2,1);
+        }
+
+        .chapter-pulse {
+            animation:
+                chapterIn
+                0.65s
+                cubic-bezier(.2,.8,.2,1);
+        }
+
+        .feedback-enter {
+            animation:
+                feedbackIn
+                0.5s
+                cubic-bezier(.2,.8,.2,1);
+        }
+
+        h1 {
+            position: relative;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                clamp(3rem,8vw,6rem);
+
+            line-height: .98;
+            margin-bottom: 20px;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #ffffff,
+                    #ffb7dd 45%,
+                    #ffc982
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            position: relative;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                clamp(1.8rem,4vw,3rem);
+
+            line-height: 1.15;
+            margin-bottom: 22px;
+
+            color: #ffc1e0;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #ffd1e8;
+        }
+
+        p {
+            position: relative;
+
+            color:
+                rgba(255,255,255,.78);
+
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* =========================
+           HOME
+           ========================= */
+
+        #homeScreen {
+            min-height: 650px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(255,164,211,.2),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    145deg,
+                    rgba(70,35,90,.88),
+                    rgba(16,22,55,.88)
+                );
+        }
+
+        #homeScreen::after {
+            content: "✦";
+
+            position: absolute;
+            top: 35px;
+            right: 55px;
+
+            font-size: 2rem;
+            color: #ffd58a;
+
+            animation:
+                twinkle
+                2.5s
+                ease-in-out
+                infinite;
+        }
+
+        #homeScreen h2 {
+            max-width: 760px;
+        }
+
+        #homeScreen p {
+            max-width: 680px;
+            margin-bottom: 35px;
+        }
+
+        /* =========================
+           BUTTONS
+           ========================= */
+
+        button {
+            font-family: inherit;
+        }
+
+        button:not(.choice-button) {
+            position: relative;
+
+            border: 0;
+            border-radius: 16px;
+
+            padding: 16px 30px;
+
+            color: white;
+
+            font-size: 1rem;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #e95d9e,
+                    #9d70f6
+                );
+
+            box-shadow:
+                0 12px 30px
+                rgba(170,76,169,.3);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+
+            overflow: hidden;
+        }
+
+        button:not(.choice-button)::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            transform:
+                translateX(-110%);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.25),
+                    transparent
+                );
+
+            transition:
+                transform .5s ease;
+        }
+
+        button:not(.choice-button):hover {
+            transform:
+                translateY(-4px)
+                scale(1.02);
+
+            box-shadow:
+                0 18px 40px
+                rgba(170,76,169,.45);
+        }
+
+        button:not(.choice-button):hover::after {
+            transform:
+                translateX(110%);
+        }
+
+        /* =========================
+           STORY
+           ========================= */
+
+        #scenarioScreen {
+            background:
+                radial-gradient(
+                    circle at 85% 10%,
+                    rgba(91,148,255,.18),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    145deg,
+                    rgba(32,32,72,.92),
+                    rgba(20,18,52,.9)
+                );
+        }
+
+        #progressText {
+            display: inline-block;
+
+            padding: 10px 18px;
+            margin-bottom: 28px;
+
+            border-radius: 999px;
+
+            color: #ffc3e1;
+
+            font-weight: 800;
+            letter-spacing: .08em;
+            font-size: .86rem;
+
+            background:
+                rgba(255,116,187,.13);
+
+            border:
+                1px solid
+                rgba(255,140,201,.18);
+        }
+
+        #scenarioText {
+            white-space: pre-line;
+            max-width: 850px;
+
+            font-size: 1.12rem;
+            margin-bottom: 30px;
+        }
+
+        #choicesContainer {
+            display: grid;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .choice-button {
+            width: 100%;
+            text-align: left;
+
+            border:
+                1px solid
+                rgba(255,255,255,.14);
+
+            border-radius: 18px;
+
+            padding: 19px 22px;
+
+            color:
+                rgba(255,255,255,.9);
+
+            background:
+                linear-gradient(
+                    100deg,
+                    rgba(255,255,255,.085),
+                    rgba(255,255,255,.035)
+                );
+
+            font-size: 1rem;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                transform .25s ease,
+                border-color .25s ease,
+                background .25s ease,
+                box-shadow .25s ease;
+
+            animation:
+                optionIn
+                .5s
+                both;
+        }
+
+        .choice-button:nth-child(1) {
+            animation-delay: .08s;
+        }
+
+        .choice-button:nth-child(2) {
+            animation-delay: .16s;
+        }
+
+        .choice-button:nth-child(3) {
+            animation-delay: .24s;
+        }
+
+        .choice-button:hover:not(:disabled) {
+            transform: translateX(8px);
+
+            border-color:
+                rgba(255,180,218,.55);
+
+            background:
+                linear-gradient(
+                    100deg,
+                    rgba(255,126,192,.18),
+                    rgba(255,255,255,.07)
+                );
+
+            box-shadow:
+                0 10px 25px
+                rgba(0,0,0,.18);
+        }
+
+        .choice-button:disabled {
+            cursor: default;
+            opacity: .92;
+        }
+
+        /* =========================
+           FEEDBACK BASE
+           ========================= */
+
+        #feedbackBox {
+            margin-top: 30px;
+            padding: 25px;
+
+            border-radius: 20px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.2);
+
+            background:
+                rgba(255,255,255,.06);
+
+            box-shadow:
+                inset 0 1px 0
+                rgba(255,255,255,.08);
+
+            transition:
+                background .35s ease,
+                border-color .35s ease,
+                box-shadow .35s ease;
+        }
+
+        #feedbackBox p {
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           GREEN - GOOD
+           ========================= */
+
+        #feedbackBox.feedback-good {
+            border-color:
+                rgba(76,230,145,.65);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(76,230,145,.20),
+                    rgba(30,120,75,.16)
+                );
+
+            box-shadow:
+                0 0 30px
+                rgba(76,230,145,.12),
+                inset 0 1px 0
+                rgba(255,255,255,.10);
+        }
+
+        #feedbackBox.feedback-good h3 {
+            color: #6ff0a5;
+        }
+
+        /* =========================
+           ORANGE - COULD BE BETTER
+           ========================= */
+
+        #feedbackBox.feedback-average {
+            border-color:
+                rgba(255,174,67,.65);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,174,67,.20),
+                    rgba(170,95,25,.15)
+                );
+
+            box-shadow:
+                0 0 30px
+                rgba(255,174,67,.12),
+                inset 0 1px 0
+                rgba(255,255,255,.10);
+        }
+
+        #feedbackBox.feedback-average h3 {
+            color: #ffbd66;
+        }
+
+        /* =========================
+           RED - VERY WRONG
+           ========================= */
+
+        #feedbackBox.feedback-poor {
+            border-color:
+                rgba(255,88,88,.65);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,88,88,.20),
+                    rgba(150,35,35,.15)
+                );
+
+            box-shadow:
+                0 0 30px
+                rgba(255,88,88,.12),
+                inset 0 1px 0
+                rgba(255,255,255,.10);
+        }
+
+        #feedbackBox.feedback-poor h3 {
+            color: #ff7777;
+        }
+
+        /* =========================
+           RESULT
+           ========================= */
+
+        #resultScreen {
+            min-height: 550px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(111,241,190,.18),
+                    transparent 32%
+                ),
+                linear-gradient(
+                    145deg,
+                    rgba(29,77,70,.72),
+                    rgba(21,27,60,.9)
+                );
+        }
+
+        #resultScreen h1 {
+            font-size:
+                clamp(3rem,7vw,5rem);
+        }
+
+        #resultScreen h2 {
+            color: #9ff5d0;
+        }
+
+        #resultScreen p {
+            max-width: 720px;
+            margin: 20px 0 32px;
+        }
+
+        /* =========================
+           ANIMATIONS
+           ========================= */
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform:
+                    translateX(70px)
+                    scale(.98);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateX(0)
+                    scale(1);
+            }
+        }
+
+        @keyframes chapterIn {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes feedbackIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes optionIn {
+            from {
+                opacity: 0;
+                transform: translateX(-25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes floatingLight {
+            from {
+                transform:
+                    translateY(-15px)
+                    translateX(0);
+            }
+
+            to {
+                transform:
+                    translateY(20px)
+                    translateX(25px);
+            }
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: .4;
+                transform:
+                    scale(.85)
+                    rotate(0);
+            }
+
+            50% {
+                opacity: 1;
+                transform:
+                    scale(1.15)
+                    rotate(15deg);
+            }
+        }
+
+        /* =========================
+           MOBILE
+           ========================= */
+
+        @media (max-width: 700px) {
+
+            .container {
+                width:
+                    calc(100% - 18px);
+
+                padding:
+                    20px 0 35px;
+            }
+
+            .screen {
+                padding:
+                    30px 22px;
+
+                border-radius:
+                    22px;
+            }
+
+            #homeScreen {
+                min-height: 600px;
+            }
+
+            #homeScreen::after {
+                right: 25px;
+                top: 20px;
+            }
+
+            p {
+                font-size: .98rem;
+            }
+
+            .choice-button {
+                padding: 17px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                scroll-behavior:
+                    auto !important;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <!-- HOME -->
+
+        <div
+            id="homeScreen"
+            class="screen screen-enter"
+        >
+
+            <h1>
+                Vyadha Gita
+            </h1>
+
+            <h2>
+                Reviving Respect and Care for Ageing Parents
+            </h2>
+
+            <p>
+                Welcome to Arjun's Journey.
+
+                <br><br>
+
+                Make meaningful choices,
+                explore everyday situations,
+                and discover how respect,
+                care and responsibility
+                can shape family life.
+            </p>
+
+            <button onclick="startJourney()">
+                ✦ Start Journey
+            </button>
+
+        </div>
+
+
+        <!-- STORY -->
+
+        <div
+            id="scenarioScreen"
+            class="screen hidden"
+        >
+
+            <p id="progressText"></p>
+
+            <h2 id="scenarioTitle"></h2>
+
+            <p id="scenarioText"></p>
+
+            <div id="choicesContainer"></div>
+
+            <div
+                id="feedbackBox"
+                class="hidden"
+            >
+
+                <h3>
+                    ✦ Story Feedback
+                </h3>
+
+                <p id="feedbackText"></p>
+
+                <button onclick="nextScenario()">
+                    Continue Story →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div
+            id="resultScreen"
+            class="screen hidden"
+        >
+
+            <h1>
+                Journey Completed!
+            </h1>
+
+            <h2 id="resultScore"></h2>
+
+            <p id="resultAdvice"></p>
+
+            <button onclick="startJourney()">
+                ↻ Begin Again
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
